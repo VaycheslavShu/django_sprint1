@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}{{ post.text|truncatewords:10}}{% endblock %}  
+{% block content %}
+  <article>
+    <ul>
+      <li>
+        Место: {{ post.location }} 
+      </li>
+      <li> 
+        Дата: {{ post.date }} 
+      </li>
+      <li> Категория: <a href="{% ulr 'blog:category_posts' 'net-my-day'}">not-my-day</a></li>
+    </ul>
+    <p style="max-width: 500px;">
+      {{ post.text|linebreaks }}
+    </p>
+  </article>
+{% endblock %}
