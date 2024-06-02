@@ -9,7 +9,7 @@
       <li> 
         Дата: {{ post.date }} 
       </li>
-      <li> Категория: <a href="{% ulr 'blog:category_posts' 'net-my-day'}">not-my-day</a></li>
+      <li> Категория: <a href="{% ulr 'blog:category' 'not-my-day'}">not-my-day</a></li>
     </ul>
     <p style="max-width: 500px;">
       {{ post.text|linebreaks }}

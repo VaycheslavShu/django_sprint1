@@ -1,9 +1,9 @@
 {% extends "base.html" %}
    
-    {% block title %}Лента записей{% endblock %}
+    {% block title %}{% endblock %}
   
     {% block content %}
-        <h1>Лента записей</h1>                        
+        <h1>{{ post.category}}</h1>                        
         <!-- Перебираем в цикле все посты -->
         <hr>
         <article>

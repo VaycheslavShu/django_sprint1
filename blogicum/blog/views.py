@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+
 posts = [
     {
         'id': 0,
@@ -45,19 +45,18 @@ posts = [
 
 
 def index(request):
-    template = 'templates/blog/index.html'
-    #context = {'posts': posts}
-    #return render(request, template)
-    return HttpResponse('<h1>Здесь же была ракета!</h1>')
+    template_name = 'blog/index.html'
+    context = {'posts': posts}
+    return render(request, template_name, context)
 
 
 def post_detail(request, id):
-    template = 'blog/detail.html'
+    template_name = 'blog/detail.html'
     context = {'posts': posts[id]}
-    return render(request, template, context)
+    return render(request, template_name, context)
 
 
 def category_posts(request, category):
-    template = 'blog/category.html'
+    template_name = 'blog/category.html'
     context = {'posts': category}
-    return render(request, template, context)
+    return render(request, template_name, context)
