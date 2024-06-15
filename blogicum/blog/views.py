@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import Http404
+from .models import Post
 
 posts = [
     {
@@ -47,6 +48,7 @@ posts = [
 
 def index(request):
     template_name = 'blog/index.html'
+    posts = Post.objects.all().order_by('-id')  
     context = {'posts': posts}
     return render(request, template_name, context)
 
