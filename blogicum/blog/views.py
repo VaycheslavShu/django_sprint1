@@ -48,7 +48,7 @@ posts = [
 
 def index(request):
     template_name = 'blog/index.html'
-    posts = Post.objects.all().order_by('-id')  
+    posts = Post.objects.all().order_by('-id') 
     context = {'posts': posts}
     return render(request, template_name, context)
 
