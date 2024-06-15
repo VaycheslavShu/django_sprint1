@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import Http404
-from .models import Post
+from collections import deque
+
 
 posts = [
     {
@@ -44,12 +45,12 @@ posts = [
                 укутывал их, чтобы не испортились от дождя.''',
     },
 ]
+inverted_posts = deque(reversed(posts))
 
 
 def index(request):
     template_name = 'blog/index.html'
-    posts = Post.objects.all().order_by('-id')
-    context = {'posts': posts}
+    context = {'posts': list(inverted_posts)}
     return render(request, template_name, context)
 
 
