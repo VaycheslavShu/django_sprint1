@@ -51,7 +51,7 @@ def index(request):
     return render(request, template_name, context)
 
 
-def post_detail(request, id):#ошибка в этой функции,нужно проверить что словарь не пустой
+def post_detail(request, id):
     template_name = 'blog/detail.html'
     if posts[id] in posts:
         post = posts[id]
