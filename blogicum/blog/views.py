@@ -56,7 +56,7 @@ def post_detail(request, id):
     if posts[id] in posts:
         post = posts[id]
         context = {'post': post}
-        return render(request, template_name, {'post': post})
+        return render(request, template_name, context)
     else:
         raise Http404("Пост не найден.")
 
