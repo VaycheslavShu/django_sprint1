@@ -3,12 +3,12 @@
 {% block content %}
 <article>
   <ul>
-      <li><p>Место: {{ posts.location }}</p></li>
-      <li><p>Дата: {{ posts.date }}</p></li>
-      <li> Категория: <a href="{% url 'category:category_posts category' posts.category %}">{{ posts.category }}</a></li>
+      <li><p>Место: {{ post.location }}</p></li>
+      <li><p>Дата: {{ post.date }}</p></li>
+      <li> Категория:<a href="{% url 'category:category_posts' post.category %}">{{ post.category }}</a></li>
   </ul>
     <p style="max-width: 500px;">
-      {{ posts.text|linebreaks }}
+      {{ post.text|linebreaks }}
     </p>
 </article> 
 {% endblock %}
