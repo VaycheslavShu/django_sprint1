@@ -45,23 +45,26 @@ posts = [
                 укутывал их, чтобы не испортились от дождя.''',
     },
 ]
-inverted_posts = deque(reversed(posts))
-
+i = 0
+inverted_posts = {}
+for post in posts:
+    inverted_posts[i] = post
+    i+=1
 
 def index(request):
     template_name = 'blog/index.html'
-    context = {'posts': list(inverted_posts)}
+    context = {'related_articles': dict(reversed(list(inverted_posts.items())))}
     return render(request, template_name, context)
 
 
 def post_detail(request, id):
     template_name = 'blog/detail.html'
     if posts[id] in posts:
-        post = posts[id]
-        context = {'post': post}
+        post = inverted_posts.get(id)
+        context = {'post_detail': post}
         return render(request, template_name, context)
     else:
-        raise Http404("Пост не найден.")
+        raise Http404('Пост не найден.')
 
 
 def category_posts(request, category_slug):

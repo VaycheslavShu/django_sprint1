@@ -1,5 +1,5 @@
 {% extends "base.html" %}   
-{% block title %}{% endblock %} 
+{% block title %}Лента записей{% endblock %} 
 {% block content %}
   <h1>Лента записей</h1>                      
       <hr>
@@ -7,11 +7,11 @@
       <ul>
       {% for post in posts %}
         <li>
-        <p>{{ post.location }}</p>
-        <p>{{ post.date }}</p> 
-        <p><a href="{% url 'category:category_posts' post.category %}">{{ post.category }}</a></p>
-        <p>{{ post.text|truncatewords:10 }} </p>             
-        <a href="{% url 'posts:post_detail' post.id %}">Читать полный текст</a>
+          <p>{{ post.location }}</p>
+          <p>{{ post.date }}</p> 
+          <p><a href="{% url 'category:category_posts' post.category %}">{{ post.category }}</a></p>
+          <p>{{ post.text|truncatewords:10 }} </p>             
+          <a href="{% url 'posts:post_detail' post.id %}">Читать полный текст</a>
         {% if not forloop.last %}
           <hr>
         {% endif %}
