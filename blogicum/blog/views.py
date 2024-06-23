@@ -2,7 +2,6 @@ from django.shortcuts import render
 from django.http import Http404
 
 
-
 posts = [
     {
         'id': 0,
@@ -54,7 +53,7 @@ for post in posts:
 
 def index(request):
     template_name = 'blog/index.html'
-    context = {'related_articles':dict(reversed(list(inverted_posts.items())))}
+    context = {'related_articles': dict(reversed(list(inverted_posts.items())))}
     return render(request, template_name, context)
 
 
