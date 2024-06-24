@@ -1,9 +1,9 @@
 <article>
-    {% with post_detail as post%}
+    {% with post as post_detail%}
     <ul>
-      <li><p>Место: {{ post.location }}</p></li>
-      <li><p>Дата: {{ post.date }}</p></li>
-      <li> Категория: <a href="{% url 'category:category_posts' post.category %}">{{ post.category }}</a></li>
+      <li><p>Место: {{ post_detail.location }}</p></li>
+      <li><p>Дата: {{ post_detail.date }}</p></li>
+      <li> Категория: <a href="{% url 'category:category_posts' post_detail.category %}">{{ post_detail.category }}</a></li>
     </ul>
     <p style="max-width: 500px;">
       {{ post.text|linebreaks }}
