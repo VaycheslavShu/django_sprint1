@@ -61,7 +61,7 @@ def index(request):
 def post_detail(request, id):
     template_name = 'blog/detail.html'
     if posts[id] in posts:
-        post = inverted_posts.get(id)
+        post = post[id]
         context = {'post_detail': post}
         return render(request, template_name, context)
     else:

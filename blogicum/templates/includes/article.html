@@ -3,7 +3,7 @@
     <ul>
       <li><p>Место: {{ post.location }}</p></li>
       <li><p>Дата: {{ post.date }}</p></li>
-      <li> Категория:<a href="{% url 'category:category_posts' post.category %}">{{ post.category }}</a></li>
+      <li> Категория: <a href="{% url 'category:category_posts' post.category %}">{{ post.category }}</a></li>
     </ul>
     <p style="max-width: 500px;">
       {{ post.text|linebreaks }}
@@ -15,7 +15,7 @@
           <li>
             <p>{{ post.location }}</p>
             <p>{{ post.date }}</p> 
-            <p><a href="{% url 'category:category_posts' post.category %}">{{ post.category }}</a></p>
+            <p><a href="{% url 'category:category_posts' post.category %}">{{ post.category }}</a></p> <!--<a href="{% url 'category:category_posts' post.category %}">-->
             <p>{{ post.text|truncatewords:10 }} </p>             
             <a href="{% url 'posts:post_detail' post.id %}">Читать полный текст</a>
           {% if not forloop.last %}
