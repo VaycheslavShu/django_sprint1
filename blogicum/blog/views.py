@@ -62,7 +62,7 @@ def post_detail(request, id):
     template_name = 'blog/detail.html'
     if id in inverted_posts.keys():
         post_detail = inverted_posts.get(id)
-        context = {'post_detail': post_detail}
+        context = {'post': post_detail}
         return render(request, template_name, context)
     else:
         raise Http404('Пост не найден.')
