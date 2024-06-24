@@ -61,8 +61,8 @@ def index(request):
 def post_detail(request, id):
     template_name = 'blog/detail.html'
     if posts[id] in posts:
-        post = post[id]
-        context = {'post_detail': post}
+        post_detail = post[id]
+        context = {'post_detail': post_detail}
         return render(request, template_name, context)
     else:
         raise Http404('Пост не найден.')
