@@ -1,12 +1,12 @@
   <article>
-      {% with post as post_detail%}
+      {% with post as posts %}
       <ul>
-        <li><p>Место: {{ post_detail.location }}</p></li>
-        <li><p>Дата: {{ post_detail.date }}</p></li>
-        <li> Категория: <a href="/category/{{ post.category.slug }}">{{ post_detail.category }}</a></li>
+        <li><p>Место: {{ posts.location }}</p></li>
+        <li><p>Дата: {{ posts.date }}</p></li>
+        <li> Категория: <a href="/category/{{ post.category.slug }}">{{ posts.category }}</a></li>
       </ul>
       <p style="max-width: 500px;">
-        {{ post.text|linebreaks }}
+        {{ posts.text|linebreaks }}
       </p>
       {% endwith %}
       {% with related_articles as posts%}
@@ -15,7 +15,7 @@
             <li>
               <p>{{ post.location }}</p>
               <p>{{ post.date }}</p> 
-              <p><a href="/category/{{ post.category.slug }}">{{ post.category.name }}</a></p>
+              <p><a href="/category/{{ post.category.slug }}">{{ post.category }}</a></p>
               <p>{{ post.text|truncatewords:10 }} </p>           
               <p><a href="{% url 'posts:post_detail' post.id %}">Читать полный текст</a></p>
             {% if not forloop.last %}
