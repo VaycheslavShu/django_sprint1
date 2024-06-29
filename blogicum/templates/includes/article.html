@@ -17,7 +17,7 @@
               <p>{{ post.date }}</p> 
               <p><a href="/category/{{ post.category.slug }}">{{ post.category.name }}</a></p>
               <p>{{ post.text|truncatewords:10 }} </p>           
-              <p><a href="{% url 'blog:post_detail' post.id %}">Читать полный текст</a></p>
+              <p><a href="{% url 'posts:post_detail' post.id %}">Читать полный текст</a></p>
             {% if not forloop.last %}
               <hr>
             {% endif %}
