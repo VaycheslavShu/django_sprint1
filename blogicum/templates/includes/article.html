@@ -11,7 +11,7 @@
       {% endwith %}
       {% with related_articles as posts%}
         <ul>
-          {% for post_id, post in posts %}
+          {% for post in posts %}
             <li>
               <p>{{ post.location }}</p>
               <p>{{ post.date }}</p> 
