@@ -47,7 +47,7 @@ posts = [
 i = 0
 post_dict = {}
 for post in posts:
-    post_dict[post.id] = post
+    post_dict[i] = post
     i += 1
 
 inverted_posts = {id: post for id, post in reversed(list(post_dict.items()))}
