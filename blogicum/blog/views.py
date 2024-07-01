@@ -56,7 +56,7 @@ inverted_posts = {id: post for id, post in reversed(list(post_dict.items()))}
 def index(request):
     template_name = 'blog/index.html'
     context = {
-        'related_articles': inverted_posts }
+        'related_articles': inverted_posts}
     return render(request, template_name, context)
 
 
