@@ -9,10 +9,8 @@
         <p><a href="{% url 'posts:post_detail' post.id %}">Читать полный текст</a></p>
       {% endif %}
       {% if view_name  == 'posts:post_detail' %}
-      <p style="max-width: 500px;">
-        {{ post.text|linebreaks }}
-     </p>
-    {% endif %}
+        <p style="max-width: 500px;">{{ post.text|linebreaks }}</p>
+      {% endif %}
   </ul>
     {% endwith %}
 </article> 
