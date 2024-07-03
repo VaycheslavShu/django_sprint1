@@ -44,9 +44,7 @@ posts = [
                 укутывал их, чтобы не испортились от дождя.''',
     },
 ]
-post_dict = {post['id']: post for post in posts}
-
-inverted_posts = {id: post for id, post in reversed(list(post_dict.items()))}
+posts_by_id = {post['id']: post for post in posts}
 
 
 def index(request):
@@ -58,8 +56,8 @@ def index(request):
 
 def post_detail(request, id):
     template_name = 'blog/detail.html'
-    if id in post_dict.keys():
-        post_detail = post_dict.get(id)
+    if id in posts_by_id.keys():
+        post_detail = posts_by_id.get(id)
         context = {'post': post_detail}
         return render(request, template_name, context)
     else:

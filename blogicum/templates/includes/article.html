@@ -1,28 +1,28 @@
-  <article>
-      {% with post as posts %}
-      <ul>
-        <li><p>Место: {{ posts.location }}</p></li>
-        <li><p>Дата: {{ posts.date }}</p></li>
-        <li> Категория: <a href="/category/{{ post.category.slug }}">{{ posts.category }}</a></li>
-      </ul>
-      <p style="max-width: 500px;">
-        {{ posts.text|linebreaks }}
-      </p>
-      {% endwith %}
-      {% with related_articles as posts%}
-        <ul>
-          {% for post in posts %}
-            <li>
-              <p>{{ post.location }}</p>
-              <p>{{ post.date }}</p> 
-              <p><a href="/category/{{ post.category.slug }}">{{ post.category }}</a></p>
-              <p>{{ post.text|truncatewords:10 }} </p>           
-              <p><a href="/posts/{{ post.id }}">Читать полный текст</a></p>
-            {% if not forloop.last %}
-              <hr>
-            {% endif %}
-          {% endfor %}
+<article>
+  {% with post as posts %}
+    <ul>
+    <li><p>Место: {{ posts.location }}</p></li>
+    <li><p>Дата: {{ posts.date }}</p></li>
+    <li> Категория: <a href="{% url 'categorys:category_posts' posts.category %}">{{ posts.category }}</a></li>
+    </ul>
+    <p style="max-width: 500px;">
+      {{ posts.text|linebreaks }}
+    </p>
+    {% endwith %}
+  {% with related_articles as posts %}
+    <ul>
+      {% for post in posts %}
+        <li>
+        <p>{{ post.location }}</p>
+        <p>{{ post.date }}</p> 
+        <p><a href="{% url 'categorys:category_posts' post.category.slug %}">{{ post.category }}</a></p>
+        <p>{{ post.text|truncatewords:10 }} </p>           
+        <p><a href="{% url 'posts:post_detail' post.id %}">Читать полный текст</a></p>
+          {% if not forloop.last %}
+            <hr>
+          {% endif %}
+      {% endfor %}
         </ul>
-      {% endwith %}
-  </article> 
+  {% endwith %}
+</article> 
  
