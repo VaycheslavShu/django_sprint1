@@ -3,5 +3,10 @@
 {% block content %}
   <h1>Лента записей</h1>                      
   <hr>
-  {% include "includes/article.html" %}    
+  {% for post in post %}
+  {% include "includes/article.html" %} 
+    {% if not forloop.last %}
+    <hr>
+    {% endif %}
+  {% endfor %}   
 {% endblock %}

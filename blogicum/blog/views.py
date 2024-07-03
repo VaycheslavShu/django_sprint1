@@ -50,7 +50,7 @@ posts_by_id = {post['id']: post for post in posts}
 def index(request):
     template_name = 'blog/index.html'
     context = {
-        'related_articles': reversed(posts)}
+        'post': reversed(posts)}
     return render(request, template_name, context)
 
 
